@@ -3,6 +3,7 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import TrendingCollection from "../assets/trending-collection.avif";
 
 export default function UserPage() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function UserPage() {
     <>
       <header
         style={{
-          backgroundImage: `url('https://i.seadn.io/s/raw/files/40c1f630bda7d55d859d9107cc86191f.png?auto=format&dpr=1&w=1920')`,
+          backgroundImage: `url('https://i2c.seadn.io/ethereum/333a4a1b74694e5b8b12d9a6983ec00d/eed39f76506b4baf71005d7127d0df/cbeed39f76506b4baf71005d7127d0df.png?w=2000')`,
         }}
         id="user-header"
       ></header>
@@ -23,7 +24,7 @@ export default function UserPage() {
           <div className="user-info__wrapper">
             <figure className="user-info__img__wrapper">
               <img
-                src="https://i.seadn.io/s/raw/files/55ada1658290f91266c83f075ea03233.png?auto=format&dpr=1&w=256"
+                src="https://i2c.seadn.io/base/6747331598e96212af2c89b7/c8bf89cb6f0d23f14cdee4f4a54d6c/dfc8bf89cb6f0d23f14cdee4f4a54d6c.png?h=1000&w=1000"
                 alt=""
                 className="user-info__img"
               />
@@ -65,7 +66,7 @@ export default function UserPage() {
                 <Link to={"/item"} className="item">
                   <figure className="item__img__wrapper">
                     <img
-                      src="https://i.seadn.io/gcs/files/0a085499e0f3800321618af356c5d36b.png?auto=format&dpr=1&w=384"
+                      src={TrendingCollection}
                       alt=""
                       className="item__img"
                     />

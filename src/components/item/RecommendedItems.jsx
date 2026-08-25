@@ -21,7 +21,7 @@ export default function RecommendedItems() {
                   <Link to={"/item"} key={index} className="item">
                     <figure className="item__img__wrapper">
                       <img
-                        src="https://i.seadn.io/gcs/files/0a085499e0f3800321618af356c5d36b.png?auto=format&dpr=1&w=384"
+                        src="https://i2c.seadn.io/ethereum/0x7bd29408f11d2bfc23c34f18275bbf23bb716bc7/029b88277232c269d39c808a8dcfba/08029b88277232c269d39c808a8dcfba.png?w=500"
                         alt=""
                         className="item__img"
                       />

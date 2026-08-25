@@ -6,7 +6,7 @@ export default function CollectionHeader() {
     <header
       style={{
         backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.2)), 
-        url('https://i.seadn.io/gcs/files/cbeed39f76506b4baf71005d7127d0df.png?auto=format&dpr=1&w=1920')`,
+        url('https://i2c.seadn.io/ethereum/333a4a1b74694e5b8b12d9a6983ec00d/eed39f76506b4baf71005d7127d0df/cbeed39f76506b4baf71005d7127d0df.png?w=2000')`,
       }}
       id="collection-header"
     >
@@ -14,7 +14,7 @@ export default function CollectionHeader() {
         <div className="collection-header__content">
           <div className="collection-header__left">
             <img
-              src="https://i.seadn.io/gcs/files/2d036c8c2bed042a1588622c3173677f.png?auto=format&dpr=1&w=256"
+              src="https://i2c.seadn.io/ethereum/333a4a1b74694e5b8b12d9a6983ec00d/036c8c2bed042a1588622c3173677f/2d036c8c2bed042a1588622c3173677f.png?h=250&w=250"
               alt=""
               className="collection-header__img"
             />
