@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import SelectedCollection from "../components/home/SelectedCollection";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import SelectedCollection from '../components/home/SelectedCollection';
+import { Link } from 'react-router-dom';
 
 export default function CollectionsPage() {
   useEffect(() => {
