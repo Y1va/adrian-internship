@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function NewCollections() {
   return (
@@ -9,8 +9,8 @@ export default function NewCollections() {
           <h2 className="new-collections__title">New Collections</h2>
           <div className="new-collections__body">
             {new Array(6).fill(0).map((_, index) => (
-              <div className="collection-column">
-                <Link to="/collection" key={index} className="collection">
+              <div className="collection-column" key={index}>
+                <Link to="/collection" className="collection">
                   <img
                     src="https://i2c.seadn.io/collection/boredapeyachtclub/banner/3ddcabd06bb257af35f029b3c17163/e13ddcabd06bb257af35f029b3c17163.jpeg?w=2000"
                     alt=""
