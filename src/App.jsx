@@ -12,8 +12,10 @@ import { AppContext } from './context/AppContext';
 
 function App() {
   const [collection, setCollection] = useState(null);
+  const [trendingNFT, setTrendingNFT] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch data for selected collection => single object
   async function fetchCollection() {
     try {
       const { data } = await axios.get(
@@ -29,12 +31,27 @@ function App() {
     }
   }
 
+  async function fetchTrendingNFT() {
+    try {
+      const { data } = await axios.get(
+        'https://remote-internship-api-production.up.railway.app/trendingnfts',
+      );
+
+      const trendingData = data.data;
+
+      setTrendingNFT(trendingData);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   useEffect(() => {
     fetchCollection();
+    fetchTrendingNFT();
   }, []);
 
   return (
-    <AppContext.Provider value={{ collection, loading }}>
+    <AppContext.Provider value={{ collection, loading, trendingNFT }}>
       <Router>
         <Nav />
         <Routes>
