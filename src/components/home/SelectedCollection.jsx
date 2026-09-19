@@ -13,7 +13,7 @@ export default function SelectedCollection() {
         <Skeleton
           width={'100%'}
           height={'calc(-35.584px + 27.8vw)'}
-          borderRadius={'12px'}
+          borderRadius={'2px'}
         />
       ) : (
         <div className="selected-collection">
