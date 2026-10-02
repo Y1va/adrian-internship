@@ -540,6 +540,8 @@ html {
   padding: 10px;
   border: 1px solid grey;
   --swiper-navigation-size: 44px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .collection {
