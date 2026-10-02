@@ -3,7 +3,6 @@ import VerifiedIcon from '../../assets/verified.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
-import Skeleton from '../ui/Skeleton';
 import TrendingSkeletonRow from '../ui/TrendingSkeletonRow';
 
 export default function Trending() {

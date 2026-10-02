@@ -520,6 +520,28 @@ html {
   width: calc((100% / 6) - 16px + (16px / 6));
 }
 
+/* Swiper: the slider is a flex item of .new-collections__body, so it needs an
+   explicit full width - otherwise it collapses and Swiper measures 0px slides. */
+.my-slider {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Swiper sets each slide's width inline; the card just fills its slide. */
+.my-slider .swiper-slide {
+  height: auto;
+}
+
+.my-slider .swiper-button-prev,
+.my-slider .swiper-button-next {
+  color: black;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid grey;
+  --swiper-navigation-size: 44px;
+}
+
 .collection {
   width: 100%;
   border-radius: 12px;

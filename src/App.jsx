@@ -14,8 +14,9 @@ function App() {
   const [collection, setCollection] = useState(null);
   const [trendingNFT, setTrendingNFT] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [newCollections, setNewCollections] = useState([]);
 
-  // Fetch data for selected collection => single object
+  // Fetch data from selected collection API endpoint => single object
   async function fetchCollection() {
     try {
       const { data } = await axios.get(
@@ -27,10 +28,11 @@ function App() {
       setCollection(collectionData);
       setLoading(false);
     } catch (error) {
-      alert(error);
+      // alert(error);
     }
   }
 
+  // Fetch data from trending NFTs API endpoint => array of 10 objects
   async function fetchTrendingNFT() {
     try {
       const { data } = await axios.get(
@@ -40,18 +42,38 @@ function App() {
       const trendingData = data.data;
 
       setTrendingNFT(trendingData);
+      setLoading(false);
     } catch (error) {
-      alert(error);
+      // alert(error);
+    }
+  }
+
+  // Fetch data from newCollections API endpoint => array of 9 objects
+  async function fetchNewCollections() {
+    try {
+      const { data } = await axios.get(
+        'https://remote-internship-api-production.up.railway.app/newCollections',
+      );
+
+      const newCollectionsData = data.data;
+
+      setNewCollections(newCollectionsData);
+      setLoading(false);
+    } catch (error) {
+      // alert(error);
     }
   }
 
   useEffect(() => {
     fetchCollection();
     fetchTrendingNFT();
+    fetchNewCollections();
   }, []);
 
   return (
-    <AppContext.Provider value={{ collection, loading, trendingNFT }}>
+    <AppContext.Provider
+      value={{ collection, loading, trendingNFT, newCollections }}
+    >
       <Router>
         <Nav />
         <Routes>
