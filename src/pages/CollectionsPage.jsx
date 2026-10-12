@@ -1,9 +1,36 @@
-import React, { useEffect } from 'react';
-import SelectedCollection from '../components/home/SelectedCollection';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import CollectionCard from '../components/ui/CollectionCard';
+import NewCollectionSkeleton from '../components/ui/NewCollectionSkeleton';
+import { AppContext } from '../context/AppContext';
 
 export default function CollectionsPage() {
+  const [collections, setCollections] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(12);
+  const { loading, setLoading } = useContext(AppContext);
+
+  async function fetchCollections() {
+    try {
+      const { data } = await axios.get(
+        'https://remote-internship-api-production.up.railway.app/collections',
+      );
+
+      const collectionData = data.data;
+
+      setCollections(collectionData);
+      setLoading(false);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  // Function for the show more button - will add 6 items per click until condition is no longer true
+  function handleShowMore() {
+    setVisibleCount((prevCount) => prevCount + 6);
+  }
+
   useEffect(() => {
+    fetchCollections();
     window.scrollTo(0, 0);
   }, []);
 
@@ -12,34 +39,27 @@ export default function CollectionsPage() {
       <div className="row">
         <h1 className="collections-page__title">Collections</h1>
         <div className="collections__body">
-          {new Array(12).fill(0).map((_, index) => (
-            <div className="collection-column">
-              <Link to="/collection" key={index} className="collection">
-                <img
-                  src="https://i2c.seadn.io/collection/boredapeyachtclub/banner/3ddcabd06bb257af35f029b3c17163/e13ddcabd06bb257af35f029b3c17163.jpeg?w=2000"
-                  alt=""
-                  className="collection__img"
-                />
-                <div className="collection__info">
-                  <h3 className="collection__name">Bored Ape Kennel Club</h3>
-                  <div className="collection__stats">
-                    <div className="collection__stat">
-                      <span className="collection__stat__label">Floor</span>
-                      <span className="collection__stat__data">0.46 ETH</span>
-                    </div>
-                    <div className="collection__stat">
-                      <span className="collection__stat__label">
-                        Total Volume
-                      </span>
-                      <span className="collection__stat__data">281K ETH</span>
-                    </div>
+          {loading || collections.length === 0
+            ? new Array(12).fill(0).map((_, index) => {
+                return (
+                  <div className="collection-column" key={index}>
+                    <NewCollectionSkeleton />
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))}
+                );
+              })
+            : collections.slice(0, visibleCount).map((collection, index) => {
+                return (
+                  <div className="collection-column" key={index}>
+                    <CollectionCard collection={collection} />
+                  </div>
+                );
+              })}
         </div>
-        <button className="collections-page__button">Load more</button>
+        {visibleCount < collections.length && (
+          <button onClick={handleShowMore} className="collections-page__button">
+            Load more
+          </button>
+        )}
       </div>
     </div>
   );
