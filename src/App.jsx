@@ -75,8 +75,6 @@ function App() {
       const popularCollectionsData = data.data;
 
       setPopularCollections(popularCollectionsData);
-
-      console.log(popularCollectionsData);
     } catch (error) {
       alert(error);
     }
@@ -97,6 +95,7 @@ function App() {
         trendingNFT,
         newCollections,
         popularCollections,
+        setLoading,
       }}
     >
       <Router>
