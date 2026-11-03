@@ -9,15 +9,16 @@ export default function CollectionsPage() {
   const [visibleCount, setVisibleCount] = useState(12);
   const { loading, setLoading } = useContext(AppContext);
 
+  // Fetch collections array
   async function fetchCollections() {
     try {
       const { data } = await axios.get(
         'https://remote-internship-api-production.up.railway.app/collections',
       );
 
-      const collectionData = data.data;
+      const collectionsData = data.data;
 
-      setCollections(collectionData);
+      setCollections(collectionsData);
       setLoading(false);
     } catch (error) {
       alert(error);
