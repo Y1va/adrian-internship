@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function CollectionCard({ collection }) {
+  // If the left side is undefined, || will fallback to the right side
+  // Used to guard the different shapes in API endpoints
+  const collectionId = collection.id || collection.collectionId;
+
   return (
-    <Link to="/collection" className="collection">
+    <Link to={`/collection/${collectionId}`} className="collection">
       <img src={collection.imageLink} alt="" className="collection__img" />
       <div className="collection__info">
         <h3 className="collection__name">{collection.title}</h3>

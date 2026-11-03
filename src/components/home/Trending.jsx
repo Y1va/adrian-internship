@@ -39,7 +39,7 @@ export default function Trending() {
                       return (
                         <Link
                           key={item.collectionId}
-                          to={'/collection'}
+                          to={`/collection/${item.collectionId}`}
                           className="trending-collection"
                         >
                           <div className="trending-collection__rank">
@@ -96,7 +96,7 @@ export default function Trending() {
                       return (
                         <Link
                           key={item.collectionId}
-                          to={'/collection'}
+                          to={`/collection/${item.collectionId}`}
                           className="trending-collection"
                         >
                           <div className="trending-collection__rank">
